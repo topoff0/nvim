@@ -9,3 +9,4 @@ vim.opt.softtabstop = 2
 vim.opt.smarttab = true
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
+

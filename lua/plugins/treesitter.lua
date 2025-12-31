@@ -11,13 +11,7 @@ return {
       },
       indent = { enable = true },
       autotag = { enable = true},
-      ensure_installed = {
-	"lua",
-	"c_sharp",
-	"tsx",
-	"html",
-      },
-      auto_install = false,
+      auto_install = true,
     })
   end
 }
