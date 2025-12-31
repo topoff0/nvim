@@ -143,7 +143,7 @@ return {
           },
 
           follow_current_file = {
-            enabled = false,
+            enabled = true,
           },
         },
 
