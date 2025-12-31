@@ -9,3 +9,5 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {})
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
