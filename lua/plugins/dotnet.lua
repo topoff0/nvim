@@ -2,7 +2,7 @@ return {
   "GustavEikaas/easy-dotnet.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    'nvim-telescope/telescope.nvim',
+    "nvim-telescope/telescope.nvim",
   },
   config = function()
     local dotnet = require("easy-dotnet")
@@ -27,7 +27,7 @@ return {
         viewmode = "float",
         ---@type number|nil
         vsplit_width = nil,
-        ---@type string|nil "topleft" | "topright" 
+        ---@type string|nil "topleft" | "topright"
         vsplit_pos = nil,
         enable_buffer_test_execution = true, --Experimental, run tests directly from buffer
         noBuild = true,
@@ -57,27 +57,39 @@ return {
           expand_all = { lhs = "-", desc = "expand all" },
           collapse_all = { lhs = "W", desc = "collapse all" },
           close = { lhs = "q", desc = "close testrunner" },
-          refresh_testrunner = { lhs = "<C-r>", desc = "refresh testrunner" }
+          refresh_testrunner = { lhs = "<C-r>", desc = "refresh testrunner" },
         },
-        additional_args = {}
+        additional_args = {},
       },
       new = {
         project = {
-          prefix = "sln" -- "sln" | "none"
-        }
+          prefix = "sln", -- "sln" | "none"
+        },
       },
       ---@param action "test" | "restore" | "build" | "run"
       terminal = function(path, action, args)
         args = args or ""
         local commands = {
-          run = function() return string.format("dotnet run --project %s %s", path, args) end,
-          test = function() return string.format("dotnet test %s %s", path, args) end,
-          restore = function() return string.format("dotnet restore %s %s", path, args) end,
-          build = function() return string.format("dotnet build %s %s", path, args) end,
-          watch = function() return string.format("dotnet watch --project %s %s", path, args) end,
+          run = function()
+            return string.format("dotnet run --project %s %s", path, args)
+          end,
+          test = function()
+            return string.format("dotnet test %s %s", path, args)
+          end,
+          restore = function()
+            return string.format("dotnet restore %s %s", path, args)
+          end,
+          build = function()
+            return string.format("dotnet build %s %s", path, args)
+          end,
+          watch = function()
+            return string.format("dotnet watch --project %s %s", path, args)
+          end,
         }
         local command = commands[action]()
-        if require("easy-dotnet.extensions").isWindows() == true then command = command .. "\r" end
+        if require("easy-dotnet.extensions").isWindows() == true then
+          command = command .. "\r"
+        end
         vim.cmd("vsplit")
         vim.cmd("term " .. command)
       end,
@@ -121,7 +133,7 @@ return {
     })
 
     -- Example command
-    vim.api.nvim_create_user_command('Secrets', function()
+    vim.api.nvim_create_user_command("Secrets", function()
       dotnet.secrets()
     end, {})
 
@@ -129,5 +141,5 @@ return {
     vim.keymap.set("n", "<leader>gg", function()
       dotnet.run_project()
     end)
-  end
+  end,
 }

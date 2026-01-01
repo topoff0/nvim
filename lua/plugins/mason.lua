@@ -3,13 +3,13 @@ return {
 
   config = function()
     require("mason").setup({
-    ui = {
+      ui = {
         icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-  end
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    })
+  end,
 }

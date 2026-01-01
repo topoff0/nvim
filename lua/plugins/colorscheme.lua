@@ -7,16 +7,16 @@ return {
       devicons = true, -- highlight the icons of `nvim-web-devicons`
       styles = {
         comment = { italic = true },
-        keyword = { italic = true }, -- any other keyword
-        type = { italic = true }, -- (preferred) int, long, char, etc
+        keyword = { italic = true },   -- any other keyword
+        type = { italic = true },      -- (preferred) int, long, char, etc
         storageclass = { italic = true }, -- static, register, volatile, etc
         structure = { italic = true }, -- struct, union, enum, etc
         parameter = { italic = true }, -- parameter pass in function
         annotation = { italic = true },
         tag_attribute = { italic = true }, -- attribute of tag in reactjs
       },
-      filter = "machine", -- classic | octagon | pro | machine | ristretto | spectrum
-      inc_search = "background", -- underline | background
+      filter = "machine",              -- classic | octagon | pro | machine | ristretto | spectrum
+      inc_search = "background",       -- underline | background
       background_clear = {
         -- "float_win",
         "toggleterm",
@@ -39,24 +39,24 @@ return {
     vim.cmd.colorscheme("monokai-pro")
 
     vim.api.nvim_set_hl(0, "NeoTreeGitModified", {
-      fg = "#CAF7E2",  -- text
-      bg = nil, -- empty background
-      bold = true  -- style
+      fg = "#CAF7E2", -- text
+      bg = nil,    -- empty background
+      bold = true, -- style
     })
     vim.api.nvim_set_hl(0, "NeoTreeGitConflict", {
-      fg = "#FFA69E",  -- text
-      bg = nil, -- empty background
-      bold = true  -- style
+      fg = "#FFA69E", -- text
+      bg = nil,    -- empty background
+      bold = true, -- style
     })
     vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", {
-      fg = "#54DEFD",  -- text
-      bg = nil, -- empty background
-      bold = true  -- style
+      fg = "#54DEFD", -- text
+      bg = nil,    -- empty background
+      bold = true, -- style
     })
     vim.api.nvim_set_hl(0, "NeoTreeGitAdded", {
-      fg = "#0B6E4F",  -- text
-      bg = nil, -- empty background
-      bold = true  -- style
+      fg = "#0B6E4F", -- text
+      bg = nil,    -- empty background
+      bold = true, -- style
     })
-  end
+  end,
 }

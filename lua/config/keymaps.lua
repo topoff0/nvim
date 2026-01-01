@@ -23,3 +23,6 @@ vim.keymap.set("n", "g#", "g#zz", { desc = "Search Partial Back (centered)" })
 
 -- Clear search highlight
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { desc = "Clear Highlight", silent = true })
+
+-- Format files
+vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
