@@ -34,7 +34,33 @@ return {
           context_highlight = "default", -- default | pro
           context_start_underline = false,
         },
-      }})
+      },
+              override = function(c)
+          return {
+            IndentBlanklineChar = { fg = c.base.dimmed4 },
+          }
+        end,
+---@diagnostic disable-next-line: unused-local
+        overridePalette = function(filter)
+          return {
+            dark2 = "#101014",
+            dark1 = "#16161E",
+            background = "#1A1B26",
+            text = "#FEFCFB",
+            accent1 = "#f7768e",
+            accent2 = "#7aa2f7",
+            accent3 = "#e0af68",
+            accent4 = "#9ece6a",
+            accent5 = "#0DB9D7",
+            accent6 = "#9d7cd8",
+            dimmed1 = "#EF798A",
+            dimmed2 = "#E5C3D1",
+            dimmed3 = "#E5C3D1",
+            dimmed4 = "#E5C3D1",
+            dimmed5 = "#16161e",
+          }
+        end
+    })
     vim.cmd.colorscheme("monokai-pro")
   end
 }
