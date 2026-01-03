@@ -56,14 +56,14 @@ return {
       bold = true,
     })
 
-    vim.api.nvim_set_hl(0 , "NeoTreeFileName", {
+    vim.api.nvim_set_hl(0, "NeoTreeFileName", {
       fg = file_color,
     })
 
     vim.api.nvim_set_hl(0, "NeoTreeGitModified", {
       fg = modified_color, -- text
-      bg = nil,       -- empty background
-      bold = true,    -- style
+      bg = nil,            -- empty background
+      bold = true,         -- style
     })
     vim.api.nvim_set_hl(0, "NeoTreeGitConflict", {
       fg = "#FFA69E", -- text
@@ -71,7 +71,7 @@ return {
       bold = true,    -- style
     })
     vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", {
-      fg = "#54DEFD", -- text
+      fg = "#EF7B45", -- text
       bg = nil,       -- empty background
       bold = true,    -- style
     })
@@ -79,6 +79,14 @@ return {
       fg = "#0B6E4F", -- text
       bg = nil,       -- empty background
       bold = true,    -- style
+    })
+
+    local cursor_fg = "#000000"
+    local cursor_bg = "#d3cdc3"
+
+    vim.api.nvim_set_hl(0, "Cursor", {
+      fg = cursor_fg,
+      bg = cursor_bg,
     })
   end,
 }

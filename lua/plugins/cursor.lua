@@ -1,11 +1,11 @@
 return {
   "sphamba/smear-cursor.nvim",
   opts = {
-    opts = {
-      stiffness = 0.5,
-      trailing_stiffness = 0.5,
-      matrix_pixel_threshold = 0.5,
-      cursor_color = "#d3cdc3",
-    },
+    stiffness = 0.5,
+    trailing_stiffness = 0.2,
+    trailing_exponent = 5,
+    damping = 0.5,
+    gradient_exponent = 0,
+    gamma = 1,
   },
 }
