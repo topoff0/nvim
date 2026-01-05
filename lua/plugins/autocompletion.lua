@@ -14,6 +14,7 @@ return {
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
+      cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
 
       cmp.setup({
         snippet = {
