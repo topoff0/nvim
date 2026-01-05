@@ -1,29 +1,41 @@
 vim.lsp.enable({
-    "lua_ls",
-    "vimls",
-    "roslyn_ls",
-    "html"
+  "lua_ls",
+  "vimls",
+  "roslyn_ls",
+  "html"
 })
 
 vim.diagnostic.config({
-    virtual_lines = true,
-    underline = true,
-    update_in_insert = false,
-    severity_sort = true,
-    float = {
-        border = "rounded",
-        source = true,
+  virtual_lines = false,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    border = "rounded",
+    source = true,
+    header = "diagnostic",
+    prefix = "● ",
+    format = function(d)
+      return string.format("%s: %s", d.code or "?", d.message)
+    end,
+  },
+  virtual_text = {
+    spacing = 4,
+    prefix = "",
+    format = function(d)
+      return string.format("%s [%s]", d.message, d.source)
+    end,
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅚 ",
+      [vim.diagnostic.severity.WARN] = "󰀪 ",
+      [vim.diagnostic.severity.INFO] = "󰋽 ",
+      [vim.diagnostic.severity.HINT] = "󰌶 ",
     },
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = "󰅚 ",
-            [vim.diagnostic.severity.WARN] = "󰀪 ",
-            [vim.diagnostic.severity.INFO] = "󰋽 ",
-            [vim.diagnostic.severity.HINT] = "󰌶 ",
-        },
-        numhl = {
-            [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-            [vim.diagnostic.severity.WARN] = "WarningMsg",
-        },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+      [vim.diagnostic.severity.WARN] = "WarningMsg",
     },
+  },
 })
