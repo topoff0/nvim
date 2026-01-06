@@ -5,6 +5,8 @@ vim.lsp.enable({
   "html",
   "tsgo",
   "cssls",
+  "clangd",
+  "tailwindcss",
 })
 
 vim.diagnostic.config({
