@@ -15,7 +15,7 @@ return {
         annotation = { italic = true },
         tag_attribute = { italic = true }, -- attribute of tag in reactjs
       },
-      filter = "machine",                  -- classic | octagon | pro | machine | ristretto | spectrum
+      filter = "ristretto",                -- classic | octagon | pro | machine | ristretto | spectrum
       inc_search = "background",           -- underline | background
       background_clear = {
         -- "float_win",
@@ -88,5 +88,17 @@ return {
       fg = cursor_fg,
       bg = cursor_bg,
     })
+
+    local function set_transparent()
+      vim.cmd [[
+    highlight Normal guibg=NONE ctermbg=NONE
+    highlight NormalNC guibg=NONE ctermbg=NONE
+    highlight EndOfBuffer guibg=NONE ctermbg=NONE
+    highlight SignColumn guibg=NONE ctermbg=NONE
+    highlight VertSplit guibg=NONE ctermbg=NONE
+  ]]
+    end
+
+    set_transparent()
   end,
 }

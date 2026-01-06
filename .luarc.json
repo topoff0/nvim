@@ -3,5 +3,8 @@
         "vim",
         "Util",
         "filesystem"
+    ],
+    "diagnostics.disable": [
+        "missing-fields"
     ]
 }

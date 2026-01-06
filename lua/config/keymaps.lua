@@ -26,3 +26,7 @@ vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { desc = "Clear Highlight", sile
 
 -- Format files
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+
+-- Increment/decrement
+vim.keymap.set("n", "+", "<C-a>")
+vim.keymap.set("n", "-", "<C-x>")

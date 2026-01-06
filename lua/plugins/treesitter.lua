@@ -1,16 +1,26 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "master",
   build = ":TSUpdate",
-
   config = function()
-    local config = require("nvim-treesitter.configs")
-    config.setup({
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = {
+        "c_sharp",
+        "javascript",
+        "json",
+        "jsonc",
+        "xml",
+        "sql",
+        "vim"
+      },
       highlight = {
         enable = true,
       },
-      indent = { enable = true },
-      autotag = { enable = true },
+      indent = {
+        enable = true,
+      },
+      autotag = {
+        enable = true,
+      },
       auto_install = true,
     })
   end,
