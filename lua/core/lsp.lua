@@ -1,7 +1,6 @@
 vim.lsp.enable({
   "lua_ls",
   "vimls",
-  "roslyn_ls",
   "html",
   "tsgo",
   "cssls",

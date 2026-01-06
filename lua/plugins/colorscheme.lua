@@ -89,6 +89,19 @@ return {
       bg = cursor_bg,
     })
 
+    -- background and border
+    vim.api.nvim_set_hl(0, "CmpPmenu", { bg = "#394053", fg = "#F8F8F2" })
+    vim.api.nvim_set_hl(0, "CmpPmenuSel", { bg = "#3E3D32", fg = "#F8F8F2", bold = true })
+    vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#5C5A4D" })
+
+    -- disable color for floating window and make nice border color
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#5C5A4D" })
+
+    -- scrollbar
+    vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#3E3D32" })
+    vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#F8F8F2" })
+
     local function set_transparent()
       vim.cmd [[
     highlight Normal guibg=NONE ctermbg=NONE

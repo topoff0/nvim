@@ -10,8 +10,8 @@ return {
     dotnet.setup({
       -- ================= LSP =================
       lsp = {
-        enabled = true,
-        roslynator_enabled = true,
+        enabled = false,
+        roslynator_enabled = false,
         analyzer_assemblies = {},
         config = {},
       },
