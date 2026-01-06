@@ -2,7 +2,9 @@ vim.lsp.enable({
   "lua_ls",
   "vimls",
   "roslyn_ls",
-  "html"
+  "html",
+  "tsgo",
+  "cssls",
 })
 
 vim.diagnostic.config({
