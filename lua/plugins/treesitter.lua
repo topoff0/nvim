@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter.configs").setup({
+    require("nvim-treesitter").setup({
       ensure_installed = {
         "c_sharp",
         "sql",
@@ -25,8 +25,8 @@ return {
         "query",
         "regex",
         "toml",
-        "tsx",
         "typescript",
+        "tsx",
         "vim",
         "vimdoc",
         "xml",
