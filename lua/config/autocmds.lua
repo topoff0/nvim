@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- defaults:
     -- https://neovim.io/doc/user/news-0.11.html#_defaults
 
-   map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
+    map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
     map("K", vim.lsp.buf.hover, "Hover Documentation")
     map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
     map("gD", vim.lsp.buf.declaration, "Goto Declaration")
@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
         buffer = event.buf,
         group = highlight_augroup,
-       callback = vim.lsp.buf.clear_references,
+        callback = vim.lsp.buf.clear_references,
       })
 
       -- When LSP detaches: Clears the highlighting

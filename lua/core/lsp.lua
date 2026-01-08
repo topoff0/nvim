@@ -2,10 +2,10 @@ vim.lsp.enable({
   "lua_ls",
   "vimls",
   "html",
-  "tsgo",
   "cssls",
   "clangd",
   "tailwindcss",
+  "ts_ls",
 })
 
 vim.diagnostic.config({
