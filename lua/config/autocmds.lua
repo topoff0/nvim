@@ -6,6 +6,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- C# configuration tab configuration
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = "cs",
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
+  end
+})
+
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(event)
@@ -13,11 +25,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
     end
 
-    -- defaults:
-    -- https://neovim.io/doc/user/news-0.11.html#_defaults
-
     map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
-    map("K", vim.lsp.buf.hover, "Hover Documentation")
+    map("K", function()
+      vim.lsp.buf.hover({ border = "rounded" })
+    end, "Hover Documentation")
     map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
     map("gD", vim.lsp.buf.declaration, "Goto Declaration")
     map("<leader>la", vim.lsp.buf.code_action, "Code Action")
