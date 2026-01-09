@@ -67,15 +67,15 @@ return {
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-h>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = "nvim_lsp",                priority = 30 },
           { name = "easy-dotnet" },
           { name = "nvim_lsp_signature_help", priority = 50 },
           { name = "luasnip",                 priority = 40 },
+          { name = "nvim_lsp",                priority = 30 },
           { name = "buffer",                  priority = 20 },
           { name = "path",                    priority = 10 },
         }),
