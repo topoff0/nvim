@@ -71,5 +71,14 @@ return {
     end
 
     set_transparent()
+
+
+    -- C# configuration
+
+    -- Color for extension methods
+    vim.api.nvim_set_hl(0, "@lsp.type.extensionMethod.cs", {
+      fg = "#EB9FEF",
+      bold = true,
+    })
   end,
 }
