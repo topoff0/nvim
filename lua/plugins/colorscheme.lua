@@ -75,18 +75,32 @@ return {
 
     -- C# configuration
 
-    -- Color for extension methods
+    -- Extension methods
     vim.api.nvim_set_hl(0, "@lsp.type.extensionMethod.cs", {
       fg = "#EB9FEF",
       bold = true,
     })
-    -- Color for records
+    -- Records
     vim.api.nvim_set_hl(0, "@lsp.type.recordClass.cs", {
       fg = "#15B097",
-      -- Color for variables
-      vim.api.nvim_set_hl(0, "@lsp.type.variable.cs", {
-        fg = "#FFCB77",
-      })
+    })
+    -- Variables
+    vim.api.nvim_set_hl(0, "@lsp.type.variable.cs", {
+      fg = "#FFCB77",
+    })
+
+
+    -- React configuration
+
+    -- Local variables
+    vim.api.nvim_set_hl(0, "@lsp.typemod.variable.local.typescriptreact", {
+      fg = "#7FC7FF",
+    })
+
+    -- Constants
+    vim.api.nvim_set_hl(0, "@lsp.typemod.variable.readonly.typescriptreact", {
+      fg = "#F78C6C",
+      bold = true,
     })
   end,
 }
