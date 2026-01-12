@@ -15,14 +15,14 @@ return {
         conditionals = { "standout" },
         loops = { "italic", "underdashed" },
         functions = { "bold" },
-        keywords = {},
+        keywords = { "bold" },
         strings = {},
         variables = {},
         numbers = {},
         booleans = { "italic" },
         properties = {},
         types = {},
-        operators = {},
+        operators = { "bold" },
         -- miscs = {}, -- Uncomment to turn off hard-coded styles
       },
       integrations = {
@@ -79,6 +79,14 @@ return {
     vim.api.nvim_set_hl(0, "@lsp.type.extensionMethod.cs", {
       fg = "#EB9FEF",
       bold = true,
+    })
+    -- Color for records
+    vim.api.nvim_set_hl(0, "@lsp.type.recordClass.cs", {
+      fg = "#15B097",
+      -- Color for variables
+      vim.api.nvim_set_hl(0, "@lsp.type.variable.cs", {
+        fg = "#FFCB77",
+      })
     })
   end,
 }
