@@ -1,6 +1,12 @@
 ---@type vim.lsp.Config
 return {
-  init_options = { hostInfo = 'neovim' },
+  init_options = {
+    hostInfo = 'neovim',
+    preferences = {
+      importModuleSpecifierPreference = "relative",
+      importModuleSpecifierEnding = "auto",
+    },
+  },
   cmd = { 'typescript-language-server', '--stdio' },
   filetypes = {
     'javascript',
@@ -18,7 +24,7 @@ return {
     local root_markers = { 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb', 'bun.lock' }
     -- Give the root markers equal priority by wrapping them in a table
     root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers, { '.git' } }
-      or vim.list_extend(root_markers, { '.git' })
+        or vim.list_extend(root_markers, { '.git' })
     -- exclude deno
     local deno_path = vim.fs.root(bufnr, { 'deno.json', 'deno.jsonc', 'deno.lock' })
     local project_root = vim.fs.root(bufnr, root_markers)
