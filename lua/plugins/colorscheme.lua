@@ -1,43 +1,11 @@
 return {
-  "catppuccin/nvim",
-  name = "catppuccin",
+  "ellisonleao/gruvbox.nvim",
   priority = 1000,
 
   config = function()
-    require("catppuccin").setup({
-      flavour = "mocha",         -- latte, frappe, macchiato, mocha
+    vim.o.background = "dark" -- or "light" for light mode
+    vim.cmd([[colorscheme gruvbox]])
 
-      no_italic = false,         -- Force no italic
-      no_bold = false,           -- Force no bold
-      no_underline = false,      -- Force no underline
-      styles = {
-        comments = { "italic" }, -- Change the style of comments
-        conditionals = { "standout" },
-        loops = { "italic", "underdashed" },
-        functions = { "bold" },
-        keywords = { "bold" },
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = { "italic" },
-        properties = {},
-        types = {},
-        operators = { "bold" },
-        -- miscs = {}, -- Uncomment to turn off hard-coded styles
-      },
-      integrations = {
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        notify = false,
-        mini = {
-          enabled = true,
-          indentscope_color = "",
-        },
-      },
-    })
-
-    vim.cmd.colorscheme "catppuccin"
 
     local cursor_fg = "#000000"
     local cursor_bg = "#d3cdc3"
@@ -73,7 +41,17 @@ return {
     set_transparent()
 
 
-    -- C# configuration
+    -- CMP transparent
+    vim.api.nvim_set_hl(0, "CmpPmenu", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "CmpPmenuSel", { bg = "NONE", bold = true })
+    vim.api.nvim_set_hl(0, "CmpBorder", { bg = "NONE" })
+
+    vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "NONE", bold = true })
+
+
+
+    -- ============== C# configuration ==============
 
     -- Extension methods
     vim.api.nvim_set_hl(0, "@lsp.type.extensionMethod.cs", {
@@ -90,7 +68,7 @@ return {
     })
 
 
-    -- React configuration
+    -- ============== React configuration ==============
 
     -- Local variables
     vim.api.nvim_set_hl(0, "@lsp.typemod.variable.local.typescriptreact", {
@@ -104,13 +82,13 @@ return {
     })
 
 
-    -- C++ configuration
-    vim.api.nvim_set_hl(0, "@lsp.type.class.cpp",  {
-      fg ="#15B097",
+    -- ============== C++ configuration ==============
+    vim.api.nvim_set_hl(0, "@lsp.type.class.cpp", {
+      fg = "#15B097",
       bold = true,
     })
     vim.api.nvim_set_hl(0, "@lsp.type.variable.cpp", {
-      fg="#FFCB77",
+      fg = "#FFCB77",
     })
     vim.api.nvim_set_hl(0, "cppType", {
       fg = "#F78C6C",
