@@ -7,6 +7,7 @@ vim.lsp.enable({
   "tailwindcss",
   "ts_ls",
   "jsonls",
+  "markdown_oxide",
 })
 
 vim.diagnostic.config({

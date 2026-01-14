@@ -102,5 +102,28 @@ return {
       fg = "#F78C6C",
       bold = true,
     })
+
+
+    -- C++ configuration
+    vim.api.nvim_set_hl(0, "@lsp.type.class.cpp",  {
+      fg ="#15B097",
+      bold = true,
+    })
+    vim.api.nvim_set_hl(0, "@lsp.type.variable.cpp", {
+      fg="#FFCB77",
+    })
+    vim.api.nvim_set_hl(0, "cppType", {
+      fg = "#F78C6C",
+      bold = true,
+    })
+    vim.api.nvim_set_hl(0, "cType", {
+      fg = "#F78C6C",
+      bold = true,
+    })
+
+    vim.api.nvim_set_hl(0, "Structure", {
+      fg = "#F78C6C",
+      bold = true,
+    })
   end,
 }
