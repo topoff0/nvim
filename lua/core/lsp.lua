@@ -8,6 +8,7 @@ vim.lsp.enable({
   "ts_ls",
   "jsonls",
   "markdown_oxide",
+  "yamlls",
 })
 
 vim.diagnostic.config({
