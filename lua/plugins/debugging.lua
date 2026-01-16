@@ -60,7 +60,7 @@ return {
           numhl = 'DapBreakpoint'
         })
 
-      vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Terminate and clear breakpoints" })
+      vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Terminate" })
 
       vim.keymap.set("n", "<leader>dcb", dap.clear_breakpoints, { desc = "Clear breakpoints" })
 

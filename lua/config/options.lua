@@ -10,3 +10,5 @@ vim.opt.smarttab = true
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
 
+-- disable automaticall insertion of comments
+vim.cmd([[autocmd FileType * set formatoptions-=ro]])

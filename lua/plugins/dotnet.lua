@@ -161,6 +161,8 @@ return {
 
     -- ================= KEYMAPS =================
     vim.keymap.set("n", "<leader>gg", ":Dotnet run<CR>", { desc = "Run project" })
+    vim.keymap.set("n", "<leader>tt", ":Dotnet test<CR>", { desc = "Run tests" })
+    vim.keymap.set("n", "<leader>ap", ":Dotnet add package<CR>", { desc = "Open window with nuget packages" })
 
     vim.keymap.set("n", "<leader>pv", function()
       dotnet.project_view()
