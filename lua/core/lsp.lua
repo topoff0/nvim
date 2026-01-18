@@ -9,6 +9,7 @@ vim.lsp.enable({
   "jsonls",
   "markdown_oxide",
   "yamlls",
+  "dockerls",
 })
 
 vim.diagnostic.config({

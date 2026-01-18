@@ -31,6 +31,7 @@ return {
         "vimdoc",
         "xml",
         "yaml",
+        "dockerfile",
       },
       highlight = {
         enable = true,
