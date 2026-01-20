@@ -10,6 +10,7 @@ vim.lsp.enable({
   "markdown_oxide",
   "yamlls",
   "dockerls",
+  "typos_lsp",
 })
 
 vim.diagnostic.config({
