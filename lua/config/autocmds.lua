@@ -35,6 +35,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<leader>lr", vim.lsp.buf.rename, "Rename all references")
     map("<leader>lf", vim.lsp.buf.format, "Format")
     map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+    map("gr", "<cmd>Telescope lsp_references<CR>", "Find all references")
+
 
     local function client_supports_method(client, method, bufnr)
       if vim.fn.has 'nvim-0.11' == 1 then
