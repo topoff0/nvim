@@ -5,6 +5,9 @@ return {
   config = function()
     vim.o.background = "dark" -- or "light" for light mode
     vim.cmd([[colorscheme gruvbox]])
+    vim.api.nvim_set_hl(0, "GruvboxRed", { fg = "#FBCAEF" })
+    vim.api.nvim_set_hl(0, "GruvBoxYellow", { fg =  "#98CE00", bold = true } )
+    vim.api.nvim_set_hl(0, "GruvBoxBlue", { fg =  "#9395D3", bold = true } )
 
 
     local cursor_fg = "#000000"
@@ -66,7 +69,11 @@ return {
     vim.api.nvim_set_hl(0, "@lsp.type.variable.cs", {
       fg = "#FFCB77",
     })
-
+    -- work like 'return'
+    vim.api.nvim_set_hl(0, "@lsp.type.controlKeyword.cs", {
+      fg = "#F44174",
+      bold = true,
+    })
 
     -- ============== React configuration ==============
 
