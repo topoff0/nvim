@@ -5,9 +5,9 @@ return {
   config = function()
     vim.o.background = "dark" -- or "light" for light mode
     vim.cmd([[colorscheme gruvbox]])
-    vim.api.nvim_set_hl(0, "GruvboxRed", { fg = "#FBCAEF" })
-    vim.api.nvim_set_hl(0, "GruvBoxYellow", { fg =  "#98CE00", bold = true } )
-    vim.api.nvim_set_hl(0, "GruvBoxBlue", { fg =  "#9395D3", bold = true } )
+    vim.api.nvim_set_hl(0, "GruvboxRed", { fg = "#54DEFD" })
+    vim.api.nvim_set_hl(0, "GruvBoxYellow", { fg = "#98CE00" })
+    vim.api.nvim_set_hl(0, "GruvBoxBlue", { fg = "#BBD1EA", bold = true })
 
 
     local cursor_fg = "#000000"
@@ -63,15 +63,30 @@ return {
     })
     -- Records
     vim.api.nvim_set_hl(0, "@lsp.type.recordClass.cs", {
-      fg = "#15B097",
+      fg = "#9F86C0",
     })
+    -- Records
+    vim.api.nvim_set_hl(0, "@lsp.type.interface.cs", {
+      fg = "#60992D",
+    })
+
     -- Variables
     vim.api.nvim_set_hl(0, "@lsp.type.variable.cs", {
       fg = "#FFCB77",
     })
-    -- work like 'return'
+    -- Control words
     vim.api.nvim_set_hl(0, "@lsp.type.controlKeyword.cs", {
       fg = "#F44174",
+      bold = true,
+    })
+    -- Methods
+    vim.api.nvim_set_hl(0, "@lsp.type.method.cs", {
+      fg = "#507DBC",
+      bold = true,
+    })
+    -- Punctuation
+    vim.api.nvim_set_hl(0, "@lsp.type.punctuation.cs", {
+      fg = "#DAE3E5",
       bold = true,
     })
 
@@ -91,8 +106,7 @@ return {
 
     -- ============== C++ configuration ==============
     vim.api.nvim_set_hl(0, "@lsp.type.class.cpp", {
-      fg = "#15B097",
-      bold = true,
+      fg = "#98CE00",
     })
     vim.api.nvim_set_hl(0, "@lsp.type.variable.cpp", {
       fg = "#FFCB77",
@@ -107,7 +121,15 @@ return {
     })
 
     vim.api.nvim_set_hl(0, "Structure", {
-      fg = "#F78C6C",
+      fg = "#15B097",
+      bold = true,
+    })
+    vim.api.nvim_set_hl(0, "cStructure", {
+      fg = "#15B097",
+      bold = true,
+    })
+    vim.api.nvim_set_hl(0, "@lsp.type.function.cpp", {
+      fg = "#507DBC",
       bold = true,
     })
   end,
