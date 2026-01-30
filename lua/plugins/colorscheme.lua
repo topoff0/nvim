@@ -84,6 +84,12 @@ return {
       fg = "#507DBC",
       bold = true,
     })
+    -- Private readonly fields
+    vim.api.nvim_set_hl(0, "@lsp.type.field.cs", {
+      fg = "#DDC4DD",
+      italic = true
+    })
+
     -- Punctuation
     vim.api.nvim_set_hl(0, "@lsp.type.punctuation.cs", {
       fg = "#DAE3E5",
@@ -109,7 +115,7 @@ return {
       fg = "#98CE00",
     })
     vim.api.nvim_set_hl(0, "@lsp.type.variable.cpp", {
-      fg = "#FFCB77",
+      fg = "#FFCB67",
     })
     vim.api.nvim_set_hl(0, "cppType", {
       fg = "#F78C6C",

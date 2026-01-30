@@ -135,6 +135,10 @@ return {
             hide_dotfiles = false,
             hide_gitignored = true,
             hide_hidden = true,
+            always_show = {
+              ".env",
+              "Migrations"
+            },
             never_show = {
               ".DS_Store",
             },
