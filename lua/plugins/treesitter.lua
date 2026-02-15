@@ -32,6 +32,7 @@ return {
         "xml",
         "yaml",
         "dockerfile",
+        "haskell",
       },
       highlight = {
         enable = true,

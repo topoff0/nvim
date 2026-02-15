@@ -8,9 +8,10 @@ vim.lsp.enable({
   "ts_ls",
   "jsonls",
   "markdown_oxide",
-  "yamlls",
   "dockerls",
   "typos_lsp",
+  "docker_compose_language_service",
+  "hls",
 })
 
 vim.diagnostic.config({
