@@ -137,7 +137,11 @@ return {
             hide_hidden = true,
             always_show = {
               ".env",
-              "Migrations"
+              "dev.env",
+              "prod.env",
+              ".env.dev",
+              ".env.prod",
+              "Migrations",
             },
             never_show = {
               ".DS_Store",

@@ -60,14 +60,14 @@ return {
           numhl = 'DapBreakpoint'
         })
 
-      vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Terminate" })
+      vim.keymap.set("n", "<leader>ss", dap.terminate, { desc = "Terminate" })
 
       vim.keymap.set("n", "<leader>dcb", dap.clear_breakpoints, { desc = "Clear breakpoints" })
 
       vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Start/continue debugging" })
-      vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Step over" })
-      vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step into" })
-      vim.keymap.set("n", "<leader>dt", dap.step_out, { desc = "Step out" })
+      vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Step over" })
+      vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Step into" })
+      vim.keymap.set("n", "<F12>", dap.step_out, { desc = "Step out" })
       vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
       vim.keymap.set("n", "<leader>dC", dap.run_to_cursor, { desc = "Run to cursor" })
       vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "Toggle DAP REPL" })
