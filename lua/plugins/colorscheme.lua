@@ -5,7 +5,7 @@ return {
   config = function()
     vim.o.background = "dark" -- or "light" for light mode
     vim.cmd([[colorscheme gruvbox]])
-    vim.api.nvim_set_hl(0, "GruvboxRed", { fg = "#54DEFD" })
+    vim.api.nvim_set_hl(0, "GruvboxRed", { fg = "#976391" })
     vim.api.nvim_set_hl(0, "GruvBoxYellow", { fg = "#98CE00" })
     vim.api.nvim_set_hl(0, "GruvBoxBlue", { fg = "#BBD1EA", bold = true })
 
@@ -63,7 +63,7 @@ return {
     })
     -- Records
     vim.api.nvim_set_hl(0, "@lsp.type.recordClass.cs", {
-      fg = "#9F86C0",
+      fg = "#1B998B",
     })
     -- Records
     vim.api.nvim_set_hl(0, "@lsp.type.interface.cs", {
@@ -72,16 +72,16 @@ return {
 
     -- Variables
     vim.api.nvim_set_hl(0, "@lsp.type.variable.cs", {
-      fg = "#FFCB77",
+      fg = "#F7996E",
     })
     -- Control words
     vim.api.nvim_set_hl(0, "@lsp.type.controlKeyword.cs", {
-      fg = "#F44174",
+      fg = "#E56399",
       bold = true,
     })
     -- Methods
     vim.api.nvim_set_hl(0, "@lsp.type.method.cs", {
-      fg = "#507DBC",
+      fg = "#7F96FF",
       bold = true,
     })
     -- Private readonly fields
