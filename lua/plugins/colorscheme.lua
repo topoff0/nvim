@@ -115,14 +115,18 @@ return {
       fg = "#98CE00",
     })
     vim.api.nvim_set_hl(0, "@lsp.type.variable.cpp", {
-      fg = "#FFCB67",
+      fg = "#F7996E",
     })
     vim.api.nvim_set_hl(0, "cppType", {
-      fg = "#F78C6C",
+      fg = "#FFDBFD",
       bold = true,
     })
     vim.api.nvim_set_hl(0, "cType", {
-      fg = "#F78C6C",
+      fg = "#FFDBFD",
+      bold = true,
+    })
+    vim.api.nvim_set_hl(0, "cStorageClass", {
+      fg = "#FF88BA",
       bold = true,
     })
 
@@ -135,8 +139,16 @@ return {
       bold = true,
     })
     vim.api.nvim_set_hl(0, "@lsp.type.function.cpp", {
-      fg = "#507DBC",
+      fg = "#7F96FF",
       bold = true,
     })
+    vim.api.nvim_set_hl(0, "@lsp.type.parameter.cpp", {
+      fg = "#C9BEFF",
+    })
+    vim.api.nvim_set_hl(0, "@lsp.type.namespace.cpp", {
+      fg = "#E56399",
+      bold = true,
+    })
+    
   end,
 }

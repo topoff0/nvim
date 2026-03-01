@@ -17,6 +17,16 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+-- c++ configuration tab configuration
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "cpp", "c", "h", "hpp" },
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+  end
+})
+
 -- Haskell configuration tab configuration
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "haskell",
