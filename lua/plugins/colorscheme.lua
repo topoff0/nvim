@@ -8,6 +8,8 @@ return {
     vim.api.nvim_set_hl(0, "GruvboxRed", { fg = "#976391" })
     vim.api.nvim_set_hl(0, "GruvBoxYellow", { fg = "#98CE00" })
     vim.api.nvim_set_hl(0, "GruvBoxBlue", { fg = "#BBD1EA", bold = true })
+    vim.api.nvim_set_hl(0, "GruvBoxOrange", { fg = "#FFDE42", })
+
 
 
     local cursor_fg = "#000000"
@@ -109,6 +111,17 @@ return {
       bold = true,
     })
 
+    -- Functions
+    vim.api.nvim_set_hl(0, "@lsp.type.function.typescriptreact", {
+      fg = "#7F96FF",
+      bold = true,
+    })
+
+    -- Tags
+    vim.api.nvim_set_hl(0, "tsxTagName", {
+      fg = "#E56399",
+      bold = true,
+    })
 
     -- ============== C++ configuration ==============
     vim.api.nvim_set_hl(0, "@lsp.type.class.cpp", {
@@ -149,6 +162,6 @@ return {
       fg = "#E56399",
       bold = true,
     })
-    
+
   end,
 }
