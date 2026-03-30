@@ -11,7 +11,6 @@ vim.lsp.enable({
   "dockerls",
   "typos_lsp",
   "docker_compose_language_service",
-  "hls",
 })
 
 vim.diagnostic.config({
