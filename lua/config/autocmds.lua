@@ -29,12 +29,14 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Haskell configuration tab configuration
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "haskell",
-  callback = function()
+  pattern = { "haskell", "lhaskell" },
+  callback = function(event)
     vim.opt_local.shiftwidth = 4
     vim.opt_local.tabstop = 4
     vim.opt_local.softtabstop = 4
     vim.opt_local.expandtab = true
+    vim.bo[event.buf].syntax = "haskell"
+    pcall(vim.treesitter.start, event.buf, "haskell")
   end
 })
 
