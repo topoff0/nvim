@@ -28,6 +28,8 @@ return {
       -- Register Easy-dotnet source
       cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
 
+      local confirm_completion = cmp.mapping.confirm({ select = true })
+
       cmp.setup({
         formatting = {
           format = lspkind.cmp_format({
@@ -69,7 +71,8 @@ return {
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-i>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<C-CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-CR>"] = confirm_completion,
+          ["<C-y>"] = confirm_completion,
           ["<C-n>"] = cmp.mapping.select_next_item(),
           ["<C-p>"] = cmp.mapping.select_prev_item(),
         }),

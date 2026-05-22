@@ -3,165 +3,200 @@ return {
   priority = 1000,
 
   config = function()
-    vim.o.background = "dark" -- or "light" for light mode
-    vim.cmd([[colorscheme gruvbox]])
-    vim.api.nvim_set_hl(0, "GruvboxRed", { fg = "#976391" })
-    vim.api.nvim_set_hl(0, "GruvBoxYellow", { fg = "#98CE00" })
-    vim.api.nvim_set_hl(0, "GruvBoxBlue", { fg = "#BBD1EA", bold = true })
-    vim.api.nvim_set_hl(0, "GruvBoxOrange", { fg = "#FFDE42", })
+    vim.o.background = "dark"
 
-
-
-    local cursor_fg = "#000000"
-    local cursor_bg = "#d3cdc3"
-
-    vim.api.nvim_set_hl(0, "Cursor", {
-      fg = cursor_fg,
-      bg = cursor_bg,
+    require("gruvbox").setup({
+      terminal_colors = true,
+      undercurl = true,
+      underline = true,
+      bold = false,
+      italic = {
+        strings = false,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
+      },
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      invert_intend_guides = false,
+      inverse = false,
+      contrast = "soft",
+      palette_overrides = {
+        dark0 = "#1d2021",
+        dark1 = "#282828",
+        dark2 = "#32302f",
+        dark3 = "#3c3836",
+        dark4 = "#504945",
+        light0 = "#ebdbb2",
+        light1 = "#d5c4a1",
+        light2 = "#bdae93",
+        bright_red = "#d3869b",
+        bright_green = "#b8bb26",
+        bright_yellow = "#fabd2f",
+        bright_blue = "#83a598",
+        bright_purple = "#b16286",
+        bright_aqua = "#8ec07c",
+        bright_orange = "#d65d0e",
+        neutral_red = "#cc6c75",
+        neutral_green = "#98971a",
+        neutral_yellow = "#d79921",
+        neutral_blue = "#7daea3",
+        neutral_purple = "#a89984",
+        neutral_aqua = "#689d6a",
+        neutral_orange = "#c47f42",
+      },
+      overrides = {
+        Normal = { bg = "NONE" },
+        NormalNC = { bg = "NONE" },
+        EndOfBuffer = { bg = "NONE" },
+        SignColumn = { bg = "NONE" },
+        NormalFloat = { bg = "NONE" },
+        FloatBorder = { bg = "NONE" },
+        CursorLine = { bg = "NONE" },
+      },
     })
 
-    -- background and border
-    vim.api.nvim_set_hl(0, "CmpPmenu", { bg = "#394053", fg = "#F8F8F2" })
-    vim.api.nvim_set_hl(0, "CmpPmenuSel", { bg = "#3E3D32", fg = "#F8F8F2", bold = true })
-    vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#5C5A4D" })
+    vim.cmd.colorscheme("gruvbox")
 
-    -- disable color for floating window and make nice border color
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#5C5A4D" })
+    local c = {
+      fg = "#d5c4a1",
+      muted = "#928374",
+      faint = "#665c54",
+      panel = "#32302f",
+      select = "#3c3836",
+      red = "#cc6c75",
+      orange = "#c47f42",
+      yellow = "#d8a657",
+      green = "#a9b665",
+      aqua = "#89b482",
+      blue = "#7daea3",
+      purple = "#d3869b",
+    }
 
-    -- scrollbar
-    vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#3E3D32" })
-    vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#F8F8F2" })
-
-    local function set_transparent()
-      vim.cmd [[
-    highlight Normal guibg=NONE ctermbg=NONE
-    highlight NormalNC guibg=NONE ctermbg=NONE
-    highlight EndOfBuffer guibg=NONE ctermbg=NONE
-    highlight SignColumn guibg=NONE ctermbg=NONE
-    highlight VertSplit guibg=NONE ctermbg=NONE
-  ]]
+    local function hl(group, opts)
+      vim.api.nvim_set_hl(0, group, opts)
     end
 
-    set_transparent()
+    hl("Cursor", { fg = "#1d2021", bg = c.yellow })
+    hl("CursorLine", { bg = "NONE" })
+    hl("CursorLineNr", { fg = c.yellow, bold = true })
+    hl("LineNr", { fg = c.faint })
+    hl("Visual", { bg = c.select })
+    hl("Search", { fg = "#1d2021", bg = c.yellow })
+    hl("IncSearch", { fg = "#1d2021", bg = c.orange })
+    hl("NormalFloat", { bg = "NONE" })
+    hl("FloatBorder", { fg = c.faint, bg = "NONE" })
+    hl("WinSeparator", { fg = c.faint, bg = "NONE" })
 
+    hl("Pmenu", { fg = c.fg, bg = "NONE" })
+    hl("PmenuSel", { fg = c.fg, bg = c.panel, bold = true })
+    hl("PmenuSbar", { bg = "NONE" })
+    hl("PmenuThumb", { bg = c.faint })
+    hl("CmpPmenu", { fg = c.fg, bg = "NONE" })
+    hl("CmpPmenuSel", { fg = c.fg, bg = c.panel, bold = true })
+    hl("CmpBorder", { fg = c.faint, bg = "NONE" })
 
-    -- CMP transparent
-    vim.api.nvim_set_hl(0, "CmpPmenu", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "CmpPmenuSel", { bg = "NONE", bold = true })
-    vim.api.nvim_set_hl(0, "CmpBorder", { bg = "NONE" })
+    hl("DiagnosticError", { fg = c.red })
+    hl("DiagnosticWarn", { fg = c.yellow })
+    hl("DiagnosticInfo", { fg = c.blue })
+    hl("DiagnosticHint", { fg = c.aqua })
+    hl("DiagnosticUnderlineError", { undercurl = true, sp = c.red })
+    hl("DiagnosticUnderlineWarn", { undercurl = true, sp = c.yellow })
+    hl("DiagnosticUnderlineInfo", { undercurl = true, sp = c.blue })
+    hl("DiagnosticUnderlineHint", { undercurl = true, sp = c.aqua })
 
-    vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "NONE", bold = true })
+    hl("@keyword", { fg = c.purple })
+    hl("@keyword.conditional", { fg = c.purple })
+    hl("@keyword.repeat", { fg = c.purple })
+    hl("@keyword.return", { fg = c.purple })
+    hl("@keyword.import", { fg = c.blue })
+    hl("@keyword.exception", { fg = c.red })
+    hl("@operator", { fg = c.muted })
+    hl("@punctuation.bracket", { fg = c.muted })
+    hl("@punctuation.delimiter", { fg = c.muted })
+    hl("@punctuation.special", { fg = c.orange })
+    hl("@comment", { fg = c.muted, italic = true })
+    hl("@string", { fg = c.green })
+    hl("@string.special", { fg = c.aqua })
+    hl("@number", { fg = c.orange })
+    hl("@boolean", { fg = c.orange })
+    hl("@constant", { fg = c.orange })
+    hl("@constant.builtin", { fg = c.orange })
+    hl("@variable", { fg = c.fg })
+    hl("@variable.parameter", { fg = c.fg, italic = true })
+    hl("@property", { fg = c.aqua })
+    hl("@field", { fg = c.aqua })
+    hl("@function", { fg = c.blue })
+    hl("@function.call", { fg = c.blue })
+    hl("@function.method", { fg = c.blue })
+    hl("@function.method.call", { fg = c.blue })
+    hl("@constructor", { fg = c.yellow })
+    hl("@type", { fg = c.yellow })
+    hl("@type.builtin", { fg = c.yellow, italic = true })
+    hl("@module", { fg = c.green })
+    hl("@namespace", { fg = c.green })
+    hl("@tag", { fg = c.blue })
+    hl("@tag.attribute", { fg = c.aqua })
+    hl("@tag.delimiter", { fg = c.muted })
 
+    hl("@type.c", { fg = c.yellow })
+    hl("@type.cpp", { fg = c.yellow })
+    hl("@type.cs", { fg = c.yellow })
+    hl("@type.haskell", { fg = c.yellow })
+    hl("@type.typescript", { fg = c.yellow })
+    hl("@type.javascript", { fg = c.yellow })
+    hl("@constructor.cpp", { fg = c.yellow })
+    hl("@constructor.cs", { fg = c.yellow })
+    hl("@constructor.haskell", { fg = c.green })
+    hl("@keyword.import.haskell", { fg = c.blue })
+    hl("@module.haskell", { fg = c.green })
 
+    hl("@tag.html", { fg = c.blue })
+    hl("@tag.attribute.html", { fg = c.aqua })
+    hl("@tag.delimiter.html", { fg = c.muted })
+    hl("@property.css", { fg = c.aqua })
+    hl("@type.css", { fg = c.yellow })
+    hl("@string.special.url.css", { fg = c.green })
 
-    -- ============== C# configuration ==============
+    local semantic = {
+      cs = true,
+      c = true,
+      cpp = true,
+      haskell = true,
+      typescript = true,
+      typescriptreact = true,
+      javascript = true,
+      javascriptreact = true,
+    }
 
-    -- Extension methods
-    vim.api.nvim_set_hl(0, "@lsp.type.extensionMethod.cs", {
-      fg = "#EB9FEF",
-      bold = true,
-    })
-    -- Records
-    vim.api.nvim_set_hl(0, "@lsp.type.recordClass.cs", {
-      fg = "#1B998B",
-    })
-    -- Records
-    vim.api.nvim_set_hl(0, "@lsp.type.interface.cs", {
-      fg = "#60992D",
-    })
+    for lang in pairs(semantic) do
+      hl("@lsp.type.class." .. lang, { fg = c.yellow })
+      hl("@lsp.type.struct." .. lang, { fg = c.green })
+      hl("@lsp.type.recordClass." .. lang, { fg = c.green })
+      hl("@lsp.type.interface." .. lang, { fg = c.aqua })
+      hl("@lsp.type.enum." .. lang, { fg = c.yellow })
+      hl("@lsp.type.type." .. lang, { fg = c.yellow })
+      hl("@lsp.type.function." .. lang, { fg = c.blue })
+      hl("@lsp.type.method." .. lang, { fg = c.blue })
+      hl("@lsp.type.extensionMethod." .. lang, { fg = c.purple })
+      hl("@lsp.type.property." .. lang, { fg = c.aqua })
+      hl("@lsp.type.field." .. lang, { fg = c.aqua })
+      hl("@lsp.type.parameter." .. lang, { fg = c.fg, italic = true })
+      hl("@lsp.type.namespace." .. lang, { fg = c.green })
+      hl("@lsp.type.variable." .. lang, { fg = c.fg })
+      hl("@lsp.typemod.variable.readonly." .. lang, { fg = c.orange })
+      hl("@lsp.typemod.property.readonly." .. lang, { fg = c.orange })
+    end
 
-    -- Variables
-    vim.api.nvim_set_hl(0, "@lsp.type.variable.cs", {
-      fg = "#F7996E",
-    })
-    -- Control words
-    vim.api.nvim_set_hl(0, "@lsp.type.controlKeyword.cs", {
-      fg = "#E56399",
-      bold = true,
-    })
-    -- Methods
-    vim.api.nvim_set_hl(0, "@lsp.type.method.cs", {
-      fg = "#7F96FF",
-      bold = true,
-    })
-    -- Private readonly fields
-    vim.api.nvim_set_hl(0, "@lsp.type.field.cs", {
-      fg = "#DDC4DD",
-      italic = true
-    })
-
-    -- Punctuation
-    vim.api.nvim_set_hl(0, "@lsp.type.punctuation.cs", {
-      fg = "#DAE3E5",
-      bold = true,
-    })
-
-    -- ============== React configuration ==============
-
-    -- Local variables
-    vim.api.nvim_set_hl(0, "@lsp.typemod.variable.local.typescriptreact", {
-      fg = "#7FC7FF",
-    })
-
-    -- Constants
-    vim.api.nvim_set_hl(0, "@lsp.typemod.variable.readonly.typescriptreact", {
-      fg = "#F78C6C",
-      bold = true,
-    })
-
-    -- Functions
-    vim.api.nvim_set_hl(0, "@lsp.type.function.typescriptreact", {
-      fg = "#7F96FF",
-      bold = true,
-    })
-
-    -- Tags
-    vim.api.nvim_set_hl(0, "tsxTagName", {
-      fg = "#E56399",
-      bold = true,
-    })
-
-    -- ============== C++ configuration ==============
-    vim.api.nvim_set_hl(0, "@lsp.type.class.cpp", {
-      fg = "#98CE00",
-    })
-    vim.api.nvim_set_hl(0, "@lsp.type.variable.cpp", {
-      fg = "#F7996E",
-    })
-    vim.api.nvim_set_hl(0, "cppType", {
-      fg = "#FFDBFD",
-      bold = true,
-    })
-    vim.api.nvim_set_hl(0, "cType", {
-      fg = "#FFDBFD",
-      bold = true,
-    })
-    vim.api.nvim_set_hl(0, "cStorageClass", {
-      fg = "#FF88BA",
-      bold = true,
-    })
-
-    vim.api.nvim_set_hl(0, "Structure", {
-      fg = "#15B097",
-      bold = true,
-    })
-    vim.api.nvim_set_hl(0, "cStructure", {
-      fg = "#15B097",
-      bold = true,
-    })
-    vim.api.nvim_set_hl(0, "@lsp.type.function.cpp", {
-      fg = "#7F96FF",
-      bold = true,
-    })
-    vim.api.nvim_set_hl(0, "@lsp.type.parameter.cpp", {
-      fg = "#C9BEFF",
-    })
-    vim.api.nvim_set_hl(0, "@lsp.type.namespace.cpp", {
-      fg = "#E56399",
-      bold = true,
-    })
-
+    hl("@lsp.type.enumMember.cs", { fg = c.orange })
+    hl("@lsp.type.enumMember.cpp", { fg = c.orange })
+    hl("@lsp.type.enumMember.c", { fg = c.orange })
+    hl("@lsp.type.decorator.typescript", { fg = c.purple })
+    hl("@lsp.type.decorator.typescriptreact", { fg = c.purple })
+    hl("@lsp.type.decorator.javascript", { fg = c.purple })
+    hl("@lsp.type.decorator.javascriptreact", { fg = c.purple })
   end,
 }
