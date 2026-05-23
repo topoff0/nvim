@@ -7,6 +7,7 @@ vim.lsp.enable({
   "tailwindcss",
   "ts_ls",
   "jsonls",
+  "yamlls",
   "markdown_oxide",
   "dockerls",
   "typos_lsp",
